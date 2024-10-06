@@ -64,16 +64,34 @@
         .link-button:hover {
             background-color: #ff3366;
         }
+
+        /* Styling for the play button */
+        #play-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
 
     <!-- First screen with video -->
     <div id="video-screen">
-        <video id="intro-video" autoplay muted>
+        <video id="intro-video">
             <source src="SaveTD.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <div id="play-button">Play Video</div> <!-- Play button overlay -->
     </div>
 
     <!-- Second screen with image and link -->
@@ -85,10 +103,16 @@
     </div>
 
     <script>
-        // JavaScript to transition from video screen to image screen
+        const playButton = document.getElementById('play-button');
         const video = document.getElementById('intro-video');
         const videoScreen = document.getElementById('video-screen');
         const secondScreen = document.getElementById('second-screen');
+
+        // When the play button is clicked, start the video with sound
+        playButton.addEventListener('click', function() {
+            playButton.style.display = 'none';  // Hide the play button
+            video.play();  // Play the video with sound
+        });
 
         // When the video ends, hide the video screen and show the second screen
         video.onended = function() {
