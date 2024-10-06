@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-Screen Website</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Styling for video container */
+        #video-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #video-screen video {
+            max-width: 80%;
+            height: auto;
+            border: 1px solid #ddd;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling for second screen with image and link */
+        #second-screen {
+            display: none; /* Initially hidden */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #second-screen img {
+            max-width: 100%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        .link-button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #ff6699;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .link-button:hover {
+            background-color: #ff3366;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- First screen with video -->
+    <div id="video-screen">
+        <video id="intro-video" autoplay>
+            <source src="SaveTD.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Second screen with image and link -->
+    <div id="second-screen">
+        <img src="ABC.jpg" alt="Wedding Image">
+        <button class="link-button" onclick="window.location.href='https://www.yourweddingregistry.com'">
+            Go to Wedding Registry
+        </button>
+    </div>
+
+    <script>
+        // JavaScript to transition from video screen to image screen
+        const video = document.getElementById('intro-video');
+        const videoScreen = document.getElementById('video-screen');
+        const secondScreen = document.getElementById('second-screen');
+
+        // When the video ends, hide the video screen and show the second screen
+        video.onended = function() {
+            videoScreen.style.display = 'none'; // Hide the video screen
+            secondScreen.style.display = 'flex'; // Show the second screen
+        };
+    </script>
+
+</body>
+</html>
