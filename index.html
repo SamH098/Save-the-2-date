@@ -61,6 +61,9 @@
         <div id="play-button">Play Video</div> <!-- Play button overlay -->
     </div>
 
+    <!-- Add a button for manual redirect -->
+    <button id="redirect-button" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); padding: 10px 20px; font-size: 16px;">Go to Next Page</button>
+
     <script>
         const playButton = document.getElementById('play-button');
         const video = document.getElementById('intro-video');
@@ -71,10 +74,16 @@
             video.play();  // Play the video with sound
         }); 
 
-       // When the video ends, redirect to a new page in the same folder
-    video.onended = function() {
-        window.location.href = "rsvp.html"; // Redirect to "index2.html"
-    };
+        // When the video ends, redirect to a new page in the same folder
+        video.onended = function() {
+            window.location.href = "rsvp.html"; // Redirect to "rsvp.html"
+        };
+
+        // Button to redirect to the next page
+        const redirectButton = document.getElementById('redirect-button');
+        redirectButton.addEventListener('click', function() {
+            window.location.href = "rsvp.html";  // Redirect to "rsvp.html" when button is clicked
+        });
     </script>
 
 </body>
