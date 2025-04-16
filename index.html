@@ -21,92 +21,117 @@
       padding: 2rem;
     }
 
-    .card-container {
-      perspective: 1500px;
-      width: 100%;
-      max-width: 700px;
-    }
-
     .card {
       background: white;
       border-radius: 24px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
+      max-width: 600px;
+      width: 100%;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .flip-container {
+      perspective: 1000px;
       position: relative;
-      width: 100%;
-      aspect-ratio: 3/4;
-    }
-
-    .card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-
-    .card-front,
-    .card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-    }
-
-    .card-front img,
-    .card-back img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .card-back {
-      transform: rotateY(180deg);
-    }
-
-    .flip-button {
-      margin-top: 1rem;
-      padding: 0.8rem 1.5rem;
-      background-color: #a17ee2;
-      color: white;
-      font-weight: 600;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .flip-button:hover {
-      background-color: #8c68d4;
-    }
-
-    .flipped .card {
-      transform: rotateY(180deg);
+      height: 300px;
+      margin-bottom: 1rem;
     }
 
     @media (min-width: 768px) {
-      .card-container {
-        max-width: 900px;
+      .flip-container {
+        height: 500px;
       }
+    }
+
+    .flipper {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .flipped .flipper {
+      transform: rotateY(180deg);
+    }
+
+    .flipper img {
+      width: 100%;
+      height: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 20px;
+      backface-visibility: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .flipper .back {
+      transform: rotateY(180deg);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .flip-button {
+      margin-bottom: 1.5rem;
+      background: transparent;
+      border: 2px solid #a17ee2;
+      color: #a17ee2;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .flip-button:hover {
+      background-color: #f2eaff;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #5a4c71;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      font-weight: 600;
+      background-color: #a17ee2;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #8c68d4;
     }
   </style>
 </head>
 <body>
-  <div class="card-container" id="cardContainer">
-    <div class="card-inner">
-      <div class="card card-front">
-        <img src="Ourlife.jpg" alt="Wedding Front Invitation">
-      </div>
-      <div class="card card-back">
-        <img src="back.jpg" alt="Wedding Back Details">
+  <div class="card">
+    <div class="flip-container" id="flipCard">
+      <div class="flipper">
+        <img class="front" src="front-image.jpg" alt="Front of Invite" />
+        <img class="back" src="back-image.jpg" alt="Back of Invite" />
       </div>
     </div>
-    <button class="flip-button" onclick="document.getElementById('cardContainer').classList.toggle('flipped')">Flip</button>
-  </div>
 
-  <script>
-    // Flip handled by toggle class in button onclick
-  </script>
+    <button class="flip-button" onclick="document.getElementById('flipCard').classList.toggle('flipped')">Flip</button>
+
+    <h1>You're Invited!</h1>
+    <a href="https://us02web.zoom.us/j/88171253476?pwd=0zOZVpNIvG76tZVAwb138vVYaTbu8D.1" class="button" target="_blank">Join Zoom Ceremony</a>
+    <a href="https://www.amazon.com/wedding/share/Horat2025" class="button" target="_blank">View Our Registry</a>
+    <a href="https://www.theknot.com/us/alisha-rosembert-and-samuel-horat-may-2025" class="button" target="_blank">Visit Wedding Website</a>
+  </div>
 </body>
 </html>
