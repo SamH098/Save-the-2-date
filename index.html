@@ -22,13 +22,13 @@
     }
 
     .card {
-  background: white;
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  max-width: 500px;
-  width: 90%;
-  padding: 2rem;
-  text-align: center;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+      padding: 3rem 2rem;
+      text-align: center;
     }
 
     .flip-container {
@@ -36,6 +36,12 @@
       position: relative;
       height: 300px;
       margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .flip-container {
+        height: 500px;
+      }
     }
 
     .flipper {
@@ -51,13 +57,13 @@
     }
 
     .flipper img {
-  width: 100%;
-  max-height: 400px; /* Controls image height on large screens */
-  height: auto;
-  object-fit: cover;
-  border-radius: 20px;
-  backface-visibility: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      width: 100%;
+      height: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 20px;
+      backface-visibility: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     }
 
     .flipper .back {
@@ -115,15 +121,15 @@
   <div class="card">
     <div class="flip-container" id="flipCard">
       <div class="flipper">
-        <img class="front" src="Ourlife.jpg" alt="Front of Invite" />
-        <img class="back" src="back.jpg" alt="Back of Invite" />
+        <img class="front" src="front-image.jpg" alt="Front of Invite" />
+        <img class="back" src="back-image.jpg" alt="Back of Invite" />
       </div>
     </div>
 
     <button class="flip-button" onclick="document.getElementById('flipCard').classList.toggle('flipped')">Flip</button>
 
     <h1>You're Invited!</h1>
-    <a href="https://us02web.zoom.us/j/85351454344" class="button" target="_blank">Join Zoom Ceremony</a>
+    <a href="https://us02web.zoom.us/j/88171253476?pwd=0zOZVpNIvG76tZVAwb138vVYaTbu8D.1" class="button" target="_blank">Join Zoom Ceremony</a>
     <a href="https://www.amazon.com/wedding/share/Horat2025" class="button" target="_blank">View Our Registry</a>
     <a href="https://www.theknot.com/us/alisha-rosembert-and-samuel-horat-may-2025" class="button" target="_blank">Visit Wedding Website</a>
   </div>
